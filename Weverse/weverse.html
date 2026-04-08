@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weverse | Beyond the Screen, Connect to Heart</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+        }
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        /* 导航栏 */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10,10,10,0.85);
+            backdrop-filter: blur(12px);
+            z-index: 999;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #d4af37;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+        .nav-links a {
+            color: #f1f1f1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+        /* 首页英雄区（渲染背景） */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.9)),
+                        linear-gradient(135deg, #1e1d27 0%, #38394b 50%, #12121b 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: 1.5px;
+            background: linear-gradient(90deg, #fff, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 18px;
+            color: #b0b0b0;
+            max-width: 720px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+        .cta {
+            padding: 14px 36px;
+            border-radius: 50px;
+            background: transparent;
+            border: 1px solid #d4af37;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .cta:hover {
+            background: #d4af37;
+            color: #0a0a0a;
+            transform: translateY(-3px);
+        }
+        /* 内容区块 */
+        .section {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 90px 24px;
+        }
+        .section h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+            color: #fff;
+            position: relative;
+            padding-bottom: 12px;
+        }
+        .section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: #d4af37;
+        }
+        .section-desc {
+            color: #b0b0b0;
+            line-height: 1.7;
+            margin-bottom: 48px;
+            max-width: 800px;
+        }
+        /* 卡片网格 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .card {
+            background: #1e1d27;
+            border-radius: 16px;
+            padding: 32px;
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: #d4af37;
+            border: 1px solid #d4af37;
+        }
+        .card h3 {
+            font-size: 18px;
+            color: #d4af37;
+            margin-bottom: 12px;
+        }
+        .card p {
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+        /* AI模块 */
+        .ai-section {
+            background: #12121b;
+            border-radius: 20px;
+            padding: 50px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .ai-text { flex: 1; }
+        .ai-img { flex: 1; }
+        .ai-img img {
+            width: 100%;
+            border-radius: 12px;
+        }
+        /* 响应式 */
+        @media (max-width:900px) {
+            .grid { grid-template-columns: repeat(2,1fr); }
+            .ai-section { flex-direction: column; padding: 32px; }
+        }
+        @media (max-width:600px) {
+            .grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 32px; }
+            nav { padding: 16px 20px; }
+            .nav-links { gap:16px; }
+        }
+        /* 底部 */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #888;
+            border-top: 1px solid #222;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 导航 -->
+<nav>
+    <div class="logo">WEVERSE</div>
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#community">Community</a>
+        <a href="#ai">AI Companion</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#shop">Shop</a>
+    </div>
+</nav>
+
+<!-- 首页（渲染背景） -->
+<section class="hero" id="home">
+    <h1>Beyond the Screen, Connect to Heart</h1>
+    <p>Weverse 2026 Digital Campaign · Redesigned for deeper fan-artist connection with premium UX/UI and AI-powered interaction.</p>
+    <button class="cta">Explore New Experience</button>
+</section>
+
+<!-- 社区 -->
+<section class="section" id="community">
+    <h2>Global Fan Community</h2>
+    <p class="section-desc">Our platform is rebuilt around fan experience: cleaner navigation, personalized content, real-time interaction, and cross-language support for global fandoms.</p>
+    <div class="grid">
+        <div class="card">
+            <h3>Personalized Feed</h3>
+            <p>Smart homepage based on your favorite artists, time zone, and language. No more messy timelines or missed updates.</p>
+        </div>
+        <div class="card">
+            <h3>Fan Creation Hub</h3>
+            <p>Dedicated space for fan art, edits, covers, and stories. Get featured and connect with creators worldwide.</p>
+        </div>
+        <div class="card">
+            <h3>Real-Time Chat</h3>
+            <p>Stable, low-latency group chat and artist replies. Smooth interaction without lag or connection issues.</p>
+        </div>
+    </div>
+</section>
+
+<!-- AI Companion -->
+<section class="section" id="ai">
+    <h2>AI Virtual Companion</h2>
+    <p class="section-desc">Powered by LLM technology, our AI assistant delivers 24/7 personalized interaction, schedule info, emotional support, and exclusive content — core of our 2026 campaign.</p>
+    <div class="ai-section">
+        <div class="ai-text">
+            <h3 style="color:#d4af37; font-size:22px; margin-bottom:16px;">Your Always-There Artist Assistant</h3>
+            <ul style="color:#b0b0b0; line-height:1.8; padding-left:20px;">
+                <li>Natural conversation in artist’s tone & style</li>
+                <li>Instant schedule & comeback updates</li>
+                <li>Personalized daily messages & motivation</li>
+                <li>Multi-language support for global fans</li>
+                <li>Unlock exclusive content via interaction</li>
+            </ul>
+        </div>
+        <div class="ai-img">
+            <img src="https://picsum.photos/id/1/600/400" alt="AI Companion Interface">
+        </div>
+    </div>
+</section>
+
+<!-- Schedule -->
+<section class="section" id="schedule">
+    <h2>Smart Schedule Hub</h2>
+    <p class="section-desc">We solve timezone confusion and information chaos with one unified, auto-adjusting schedule center for every artist you follow.</p>
+    <div class="grid">
+        <div class="card">
+            <h3>Timezone Auto-Adjust</h3>
+            <p>All events automatically convert to your local time. Never miss lives, streams, or fan meetings.</p>
+        </div>
+        <div class="card">
+            <h3>Smart Reminders</h3>
+            <p>Set alerts for lives, comebacks, and events. Notify via app, push, or email.</p>
+        </div>
+        <div class="card">
+            <h3>Calendar Sync</h3>
+            <p>One-click sync to Google/Apple/Outlook calendar for seamless daily planning.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Shop -->
+<section class="section" id="shop">
+    <h2>Weverse Shop Redesigned</h2>
+    <p class="section-desc">Complete UX overhaul: simpler navigation, faster loading, clearer categories, and smoother checkout for albums, merch, and official goods.</p>
+    <div class="grid">
+        <div class="card">
+            <h3>Clear Navigation</h3>
+            <p>Intuitive menu structure and search so you find what you want in 3 clicks max.</p>
+        </div>
+        <div class="card">
+            <h3>Global Shipping</h3>
+            <p>Improved international delivery, real-time tracking, and transparent fees.</p>
+        </div>
+        <div class="card">
+            <h3>Member Perks</h3>
+            <p>Exclusive pre-order benefits, limited editions, and member-only discounts.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>WEVERSE 2026 | Beyond the Screen, Connect to Heart</p>
+    <p style="margin-top:8px; font-size:14px;">HPMC 4008 Communication and the New Media · Digital Marketing Campaign</p>
+</footer>
+
+</body>
+</html>
